@@ -1,0 +1,25 @@
+model_type: hf
+model:
+  _target_: transformers.AutoModelForCausalLM.from_pretrained
+  pretrained_model_name_or_path: ${model_name}
+
+# the generation arguments in huggingface `generate()` function, see https://huggingface.co/docs/transformers/v4.26.0/en/main_classes/text_generation#transformers.GenerationMixin.generate
+generation_kwargs:
+  temperature: 0
+  max_new_tokens: 300
+
+
+# model_type: hf               # Use HuggingFace models
+# model:
+#   _target_: transformers.AutoModelForCausalLM.from_pretrained
+#   pretrained_model_name_or_path: ${model_name}
+#   torch_dtype: float16        #  Enable FP16 precision
+# tokenizer:
+#   _target_: transformers.AutoTokenizer.from_pretrained
+#   pretrained_model_name_or_path: ${model_name}
+#   use_fast: true
+# generation_kwargs:
+#   max_length: 3000
+#   max_new_tokens: 300
+#   temperature: 0
+
